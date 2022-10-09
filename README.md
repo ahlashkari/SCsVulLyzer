@@ -1,1 +1,3 @@
-# SMTCNTVolLyzer
+# Smart Contracts Analyzer (SmtConLyzer)
+
+
