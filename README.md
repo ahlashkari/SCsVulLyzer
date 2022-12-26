@@ -1,3 +1,3 @@
-# Smart Contracts Analyzer (SmtConLyzer)
+# Smart Contracts Volnerability Analyzer (SCsVolLyzer)
 
 
