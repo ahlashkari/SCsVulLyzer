@@ -1,5 +1,19 @@
 # Smart Contracts Volnerability Analyzer (SCsVolLyzer)
 
 
-Find the dataset file in the following link:
-https://yuoffice-my.sharepoint.com/:x:/r/personal/ahabibil_yorku_ca/Documents/York/CurrentProjects/SmartContracts/all_samples_no_dups.csv?d=w2984fa7edafd4833a2c753e4b72c9e83&csf=1&web=1&e=fOUAQB
+
+
+# Citation and Reference
+
+For citation in your works and also understanding VolMemLyzer completely, you can find below published papers:
+
+- ...
+
+### Project Team members 
+
+* [**Arash Habibi Lashkari:**](http://ahlashkari.com/index.asp) Founder and Project Owner 
+
+* [**Sepideh HajHosseinkhani:**](https://github.com/Sepid-99) Researcher and Developer 
+
+### Acknowledgement 
+This project has been made possible through funding from the Natural Sciences and Engineering Research Council of Canada — NSERC (#RGPIN-2020-04701) and Canada Research Chair (Tier II) - (#CRC-2021-00340) to Arash Habibi Lashkari.
