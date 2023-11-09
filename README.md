@@ -143,7 +143,7 @@ Nine mathematical functions are used to extract different features. You can see 
 
 SCsVolLyzer V1.0: For citation in your works and also understanding SCsVolLyzer-V1.0 completely, you can find below published papers:
 
-????????????????????????????????????????????????????????????
+Sepideh Hajihosseinkhani, Arash Habibi Lashkari, Ali Mizani, “Unveiling Vulnerable Smart Contracts: Toward Profiling Vulnerable Smart Contracts using Genetic Algorithm and Generating Benchmark Dataset”, Blockchain: Research and Applications, Vol. , Page: , December 2023
 
 
 ### Project Team members 
