@@ -44,19 +44,15 @@ Also, this project has been successfully tested on Windows10, OS X.
                 
 We have currenlty 70 features that are as follows:
 
-1. 'Bytecode_entropy'
-1. 'AST_source_id'
-1. 'AST_numberOf_exportedSymbols'
-1. 'AST_numberOf_nodes'
-1. 'weight_Bytecode_numberOf_character_0'
-1. 'weight_Bytecode_numberOf_character_1'
-1. 'weight_Bytecode_numberOf_character_2'
-1. 'weight_Bytecode_numberOf_character_3'
+1. 'Bytecode_entropy':
+1. 'AST_source_id':
+1. 'AST_numberOf_exportedSymbols'"
+1. 'AST_numberOf_nodes'"
+1. 'weight_Bytecode_numberOf_character_0'"
+1. 'weight_Bytecode_numberOf_character_1'"
+1. 'weight_Bytecode_numberOf_character_2'"
+1. 'weight_Bytecode_numberOf_character_3'"
 ...
-
-
-## Definitions
-
 
 ## Statistical Information Calculation
 
