@@ -3,9 +3,7 @@
 
 As part of the Understanding Cybersecurity Series (UCS), SCsVolLyzer is a Python open-source project to extract features to profile Smart Contracts (SCs) for vulnerability detection.   
 
-NLFlowLyzer is generating bidirectional flows from a TCP-based network traffic, where the first packet determines the forward (source to destination) and backward (destination to source) directions, hence the statistical time-related features can be calculated separately in the forward and backward directions. Additional functionalities include, selecting features from the list of existing features, adding new features, and controlling the duration of flow timeout.
-
-NOTE: TCP flows are usually terminated upon connection teardown (by FIN or RST packet) while UDP flows are terminated by a flow timeout. The flow timeout value can be assigned arbitrarily by the individual scheme e.g., 600 seconds for both TCP and UDP.
+The SCsVolLyzer is a Python-based tool designed to analyze and extract key metrics from Ethereum smart contracts written in Solidity. It employs a suite of functions to dissect the contract's source code, compiling it to obtain its abstract syntax tree (AST), bytecode, and opcodes. The analyzer calculates entropy of the bytecode to assess its randomness and security, determines the frequency of certain opcodes to understand the contract's complexity, and evaluates the usage of key Solidity keywords to gauge coding patterns. This modular and extensible tool provides a comprehensive snapshot of a smart contract's structure and behavior, facilitating developers and auditors in optimizing and securing Ethereum blockchain applications.
 
 
 # Table of Contents
@@ -28,7 +26,7 @@ You must install the requirements in your system before you can begin installing
 sudo pip3 install -r requirements.txt
 ```
 
-You are now ready to install NLFlowLyzer. In order to do so, you should run this command, which will install the NLFlowLyzer package in your system:
+You are now ready to install SCsVolLyzer. In order to do so, you should run this command, which will install the SCsVolLyzer package in your system:
 
 ```bash
 sudo python3 setup.py install
@@ -37,30 +35,24 @@ sudo python3 setup.py install
 Finally, to execute the program, run this command:
 
 ```bash
-sudo nlflowlyzer
+python main.py path_to_solidity_source_file.sol
 ```
-Also, you can use `-h` to see different options of the program.
-
-Moreover, this project has been successfully tested on Ubuntu 20.04. It should work on other versions of Ubuntu OS (or even Debian OS) as long as your system has the necessary python3 packages (you can see the required packages in the `requirements.txt` file).
-
-TODO: explain different options of arg parser.
-
-TODO: explain how to use the config file.
+Also, this project has been successfully tested on Windows10, OS X. 
 
 
 # Extracted Features
                 
-We have currenlty 114 features that are as follows:
+We have currenlty 70 features that are as follows:
 
-1. Duration: ????
-1. PacketsCount: ?????
-1. FwdPacketsCount: ??????
-1. BwdPacketsCount
-1. TotalPayloadBytes
-1. FwdTotalPayloadBytes
-1. BwdTotalPayloadBytes
+1. 'Bytecode_entropy'
+1. 'AST_source_id'
+1. 'AST_numberOf_exportedSymbols'
+1. 'AST_numberOf_nodes'
+1. 'weight_Bytecode_numberOf_character_0'
+1. 'weight_Bytecode_numberOf_character_1'
+1. 'weight_Bytecode_numberOf_character_2'
+1. 'weight_Bytecode_numberOf_character_3'
 ...
-
 
 
 ## Definitions
