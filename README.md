@@ -57,10 +57,6 @@ We have currenlty 70 features that are as follows:
 
 ## Definitions
 
-+ **IAT**
-+ **Bulk**
-+ **Subflow**
-+ **Idle**
 
 ## Statistical Information Calculation
 
@@ -73,37 +69,11 @@ We use differnet libraries to calculate various mathematical equations. Below yo
      The module is not intended to be a competitor to third-party libraries such as NumPy, SciPy, or proprietary full-featured statistics packages aimed at professional statisticians such as Minitab, SAS and Matlab. It is aimed at the level of graphing and scientific calculators.
 
 
-Nine mathematical functions are used to extract different features. You can see how those functions are calculated in the NLFlowLyzer below:
+Only one mathematical functions is used to extract different features. You can see how those functions are calculated in the NLFlowLyzer below:
 
-1. Min
-
-      You know what it means :). The 'min' function (Python built-in) calculates the minimum value in a given list.
-
-1. Max
-
-      Same as min. The 'max' function (Python built-in) calculates the minimum value in a given list.
-
-1. Mean
-
-      The ['mean'](https://docs.python.org/3/library/statistics.html#statistics.mean) function from 'statistics' library (Python built-in) calculates the mean value of a given list. According to the library documentation:
-        
-      The arithmetic mean is the sum of the data divided by the number of data points. It is commonly called “the average”, although it is only one of many different mathematical averages. It is a measure of the central location of the data.
-
-      TODO: use 'fmean' instead of mean (it is new in python 3.8). According to the library documentation:
-        
-      This runs faster than the mean() function and it always returns a float. The data may be a sequence or iterable. If the input dataset is empty, raises a StatisticsError.
+1. entropy??? I create the function!
 
 
-1. Standard Deviation
-
-      The ['pstdev'](https://docs.python.org/3/library/statistics.html#statistics.pstdev) function from 'statistics' library (Python built-in) calculates the mean value of a given list. According to the library documentation:
-
-      Return the population standard deviation (the square root of the population variance). See pvariance() for arguments and other details.
-
-
-
-
-----
      
      
 
