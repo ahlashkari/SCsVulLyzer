@@ -1,19 +1,13 @@
 import argparse
-from analyzer import count_keys, compile_solidity_source, calculate_bytecode_entropy, calculate_weights, calculate_opcode_sums, extract_keywords_from_source
+from analyzer import compile_solidity_source, calculate_bytecode_entropy, process_bytecode, process_ast, process_opcode, count_keywords_in_code
+
 
 def integrate_features_and_print(source_code):
-    bytecode, ast, opcodes = compile_solidity_source(source_code)
-    features = {
-        'Bytecode_entropy': calculate_bytecode_entropy(bytecode),
-        'AST_source_id': ast['id'],
-        'AST_numberOf_exportedSymbols': count_keys(ast, 'exportedSymbols'),
-        'AST_numberOf_nodes': count_keys(ast,'id'),
-    }
-    features.update(calculate_weights(bytecode))
-    features.update(calculate_opcode_sums(opcodes))
-    keywords_list = [
-        'from', 'require', 'dev', 'internal', 'string', 'view', 'mapping', 'sub', 'emit', 'length','pure', 'will', 'not', 'approve', 'external', 'memory', 'eth', 'else', 'can', 'calls', 'data', 'q' , 'eth', 'else', 'can','calls', 'data', 'q' ]
-    features.update(extract_keywords_from_source(source_code, keywords_list))
+    features = {}
+    features.update(process_bytecode(source_code))
+    features.update(process_ast(source_code))
+    features.update(process_opcode(source_code))
+    features.update(count_keywords_in_text(source_code))
     return features
 
 def main():
