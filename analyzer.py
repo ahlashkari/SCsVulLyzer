@@ -61,7 +61,7 @@ def process_opcode(source_code):
         opcode_frequency_dic = {"Opcode weight " + opcode: opcode_count.get(opcode, 0) / total_opcodes if total_opcodes > 0 else 0 for opcode in opcode_list}
     return opcode_frequency_dic
 
-def count_keywords_in_text(source_code):
+def count_keywords_in_code(source_code):
     # Prepare a regex pattern to match whole words only, case-insensitive
     patterns = {keyword: re.compile(r'\b' + re.escape(keyword) + r'\b', re.IGNORECASE) for keyword in keywords_list}
     # Initialize a dictionary to store the count of each keyword
