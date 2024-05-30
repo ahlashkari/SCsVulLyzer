@@ -1,4 +1,4 @@
-# Smart Contracts Volnerability Analyzer (SCsVolLyzer)
+# Smart Contracts Vulnerability Analyzer (SCsVulLyzer)
 
 
 As part of the Understanding Cybersecurity Series (UCS), SCsVolLyzer is a Python open-source project to extract features to profile Smart Contracts (SCs) for vulnerability detection.   
@@ -110,7 +110,7 @@ The function calculate_bytecode_entropy computes the entropy of a given bytecode
 
 # Copyright (c) 2023
 
-SCsVolLyzer V1.0.0: For citation in your works and also understanding SCsVolLyzer V1.0.0 completely, you can find below published papers:
+SCsVulLyzer V1.0.0: For citation in your works and also understanding SCsVulLyzer V1.0.0 completely, you can find below published papers:
 
 [Sepideh Hajihosseinkhani, Arash Habibi Lashkari, Ali Mizani, “Unveiling Vulnerable Smart Contracts: Toward Profiling Vulnerable Smart Contracts using Genetic Algorithm and Generating Benchmark Dataset”, Blockchain: Research and Applications, Vol. 4, December 2023](https://www.sciencedirect.com/science/article/pii/S2096720923000465?via%3Dihub)
 
