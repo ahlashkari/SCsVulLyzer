@@ -26,13 +26,7 @@ You must install the requirements in your system before you can begin installing
 sudo pip3 install -r requirements.txt
 ```
 
-You are now ready to install SCsVolLyzer. In order to do so, you should run this command, which will install the SCsVolLyzer package in your system:
-
-```bash
-sudo python3 setup.py install
-```
-
-Finally, to execute the program, run this command:
+You are now ready to execute SCsVolLyzer, run this command:
 
 ```bash
 python main.py path_to_solidity_source_file.sol
