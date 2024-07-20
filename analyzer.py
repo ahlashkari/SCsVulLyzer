@@ -50,6 +50,7 @@ def process_opcode(source_code):
     opcode_frequency_dic = {}
     opcodes  = compile_solidity_source(source_code)[2].split(' ')
     opcode_count = Counter(opcodes)
+    opcode_list = ['CALL', 'ADD','POP','JUMP','AND','OR','MSTORE','ISZERO','JUMPDEST','JUMPI','SLOAD','RETURN','REVERT','SUB','MLOAD','DIV','EXP','MUL','EQ','MUL','DIV','EXP','AND','OR','NOT','BYTE','ADDRESS','MSTORE','MSTORE8','SLOAD','SSTORE','JUMPI', 'INVALID', 'DUP', 'PUSH','SWAP']
     # Remove items not in opcode_list
     keys_to_remove = set(opcode_count.keys()) - set(opcode_list)
     for key in keys_to_remove:
@@ -63,6 +64,7 @@ def process_opcode(source_code):
 
 def count_keywords_in_code(source_code):
     # Prepare a regex pattern to match whole words only, case-insensitive
+    keywords_list = ['from', 'require', 'dev', 'internal', 'string', 'view', 'mapping', 'sub', 'emit', 'length','pure', 'will', 'not', 'approve', 'external', 'memory', 'eth', 'else', 'can', 'calls', 'data', 'q' , 'eth', 'else', 'can','calls', 'data', 'q' ]
     patterns = {keyword: re.compile(r'\b' + re.escape(keyword) + r'\b', re.IGNORECASE) for keyword in keywords_list}
     # Initialize a dictionary to store the count of each keyword
     keyword_counts = {keyword: 0 for keyword in keywords_list}
