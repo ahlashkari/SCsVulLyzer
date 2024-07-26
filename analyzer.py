@@ -26,15 +26,29 @@ def process_bytecode(source_code):
     bytecode_dic['bytecode_len'] = len(bytecode)
     char_count = Counter(bytecode)
     total_chars = sum(char_count.values())
-    prefix = 'Weight bytecode_character_'
-    weight_char_count = {prefix + key: value / total_chars for key, value in char_count.items()}
-    bytecode_dic.update(weight_char_count)
-    prefix = 'bytecode_character_'
-    char_count = {prefix + key: value for key, value in char_count.items()}
-    bytecode_dic.update(char_count)
+
+    # List of bytecode characters to be extracted
+    bytecode_chars = [
+        '6', '0', '8', '4', '5', '2', '1', 'a', '7', '3', 'f', '9', 'b', 'c', 'd', 'e', '_', '<', 's', 't', 'i', 'n', '>',
+        ':', 'S', 'l', 'L', 'M', 'h', 'E', 'C', 'R', 'o', 'v', 'r', 'y', 'O', 'z', 'B', 'T', 'D', 'A', 'u', 'k', 'P', 'g',
+        'I', 'm', 'x']
+    
+    prefix_weight = 'Weight bytecode_character_'
+    prefix_count = 'bytecode_character_'
+
+    # Initialize dictionary entries for bytecode characters with 0
+    for char in bytecode_chars:
+        bytecode_dic[prefix_weight + char] = 0
+        bytecode_dic[prefix_count + char] = 0
+
+    # Update counts and weights for bytecode characters found in bytecode
+    for char, count in char_count.items():
+        if char in bytecode_chars:
+            bytecode_dic[prefix_weight + char] = count / total_chars
+            bytecode_dic[prefix_count + char] = count
+
     bytecode_dic['bytecode_entropy'] = calculate_bytecode_entropy(bytecode)
     return bytecode_dic
-
 
 def process_ast(source_code):
     ast  = compile_solidity_source(source_code)[1]
