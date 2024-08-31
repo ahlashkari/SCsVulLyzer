@@ -1,103 +1,102 @@
-import json
 from collections import Counter
 import scipy.stats as ss
 import solcx
 import re
 
-def compile_solidity_source(source_code):
-    solcx.install_solc(version="0.4.24")
-    solcx.set_solc_version("0.4.24")
+def compile_solidity_source(source_code, version="0.4.24"):
+    """Compile Solidity source code to bytecode, AST, and opcodes."""
+    solcx.install_solc(version=version)
+    solcx.set_solc_version(version)
     compiled_sol = solcx.compile_source(source_code, output_values=["ast", "bin", "opcodes"])
     contract_id, contract_interface = compiled_sol.popitem()
-    bytecode = contract_interface['bin']
-    ast = contract_interface['ast']
-    opcodes = contract_interface['opcodes']
-    return bytecode, ast, opcodes
+    return {
+        'bytecode': contract_interface['bin'],
+        'ast': contract_interface['ast'],
+        'opcodes': contract_interface['opcodes']
+    }
 
 def calculate_bytecode_entropy(bytecode):
+    """Calculate the entropy of the bytecode."""
     counter = Counter(bytecode)
     probabilities = [count / len(bytecode) for count in counter.values()]
-    entropy = ss.entropy(probabilities, base=2)
-    return entropy
+    return ss.entropy(probabilities, base=2)
 
 def process_bytecode(source_code):
-    bytecode  = compile_solidity_source(source_code)[0]
-    bytecode_dic = {}
-    bytecode_dic['bytecode_len'] = len(bytecode)
+    """Process bytecode to extract statistics and entropy."""
+    compiled = compile_solidity_source(source_code)
+    bytecode = compiled['bytecode']
+    
+    bytecode_dic = {
+        'bytecode_len': len(bytecode),
+        'bytecode_entropy': calculate_bytecode_entropy(bytecode)
+    }
+    
     char_count = Counter(bytecode)
-    total_chars = sum(char_count.values())
-
-    # List of bytecode characters to be extracted
+    total_chars = len(bytecode)
+    
     bytecode_chars = [
         '6', '0', '8', '4', '5', '2', '1', 'a', '7', '3', 'f', '9', 'b', 'c', 'd', 'e', '_', '<', 's', 't', 'i', 'n', '>',
         ':', 'S', 'l', 'L', 'M', 'h', 'E', 'C', 'R', 'o', 'v', 'r', 'y', 'O', 'z', 'B', 'T', 'D', 'A', 'u', 'k', 'P', 'g',
-        'I', 'm', 'x']
+        'I', 'm', 'x'
+    ]
     
-    prefix_weight = 'Weight bytecode_character_'
-    prefix_count = 'bytecode_character_'
-
-    # Initialize dictionary entries for bytecode characters with 0
     for char in bytecode_chars:
-        bytecode_dic[prefix_weight + char] = 0
-        bytecode_dic[prefix_count + char] = 0
-
-    # Update counts and weights for bytecode characters found in bytecode
-    for char, count in char_count.items():
-        if char in bytecode_chars:
-            bytecode_dic[prefix_weight + char] = count / total_chars
-            bytecode_dic[prefix_count + char] = count
-
-    bytecode_dic['bytecode_entropy'] = calculate_bytecode_entropy(bytecode)
+        bytecode_dic[f'Weight_bytecode_character_{char}'] = char_count.get(char, 0) / total_chars
+        bytecode_dic[f'bytecode_character_{char}'] = char_count.get(char, 0)
+    
     return bytecode_dic
 
 def process_ast(source_code):
-    ast  = compile_solidity_source(source_code)[1]
-    ast_dic = {}
-    ast_dic['ast_len_exportedSymbols'] = len(ast['attributes'])
-    ast_dic['ast_id'] = ast['id']
-    ast_dic['ast_nodetype'] = ast['name']
-    ast_dic['ast_src'] = ast['src']
-    ast_dic['ast_len_nodes'] = len(ast['children'])
-    return ast_dic
+    """Process the AST of the Solidity source code."""
+    compiled = compile_solidity_source(source_code)
+    ast = compiled['ast']
+    
+    return {
+        'ast_len_exportedSymbols': len(ast.get('attributes', [])),
+        'ast_id': ast.get('id', ''),
+        'ast_nodetype': ast.get('name', ''),
+        'ast_src': ast.get('src', ''),
+        'ast_len_nodes': len(ast.get('children', []))
+    }
 
-def process_opcode(source_code):
-    opcode_frequency_dic = {}
-    opcodes  = compile_solidity_source(source_code)[2].split(' ')
+def process_opcodes(source_code):
+    """Process opcodes to extract frequency statistics."""
+    compiled = compile_solidity_source(source_code)
+    opcodes = compiled['opcodes'].split(' ')
+    
+    opcode_list = [
+        'STOP', 'ADD', 'MUL', 'SUB', 'DIV', 'SDIV', 'MOD', 'SMOD', 'ADDMOD', 'MULMOD', 'EXP', 'SIGNEXTEND',
+        'LT', 'GT', 'SLT', 'SGT', 'EQ', 'ISZERO', 'AND', 'OR', 'XOR', 'NOT', 'BYTE', 'SHL', 'SHR', 'SAR',
+        'SHA3', 'ADDRESS', 'BALANCE', 'ORIGIN', 'CALLER', 'CALLVALUE', 'CALLDATALOAD', 'CALLDATASIZE',
+        'CALLDATACOPY', 'CODESIZE', 'CODECOPY', 'GASPRICE', 'EXTCODESIZE', 'EXTCODECOPY', 'RETURNDATASIZE',
+        'RETURNDATACOPY', 'BLOCKHASH', 'COINBASE', 'TIMESTAMP', 'NUMBER', 'DIFFICULTY', 'GASLIMIT', 'POP',
+        'MLOAD', 'MSTORE', 'MSTORE8', 'SLOAD', 'SSTORE', 'JUMP', 'JUMPI', 'PC', 'MSIZE', 'GAS', 'JUMPDEST',
+        'PUSH1', 'PUSH2', 'PUSH3', 'PUSH4', 'PUSH5', 'PUSH6', 'PUSH7', 'PUSH8', 'PUSH9', 'PUSH10', 'PUSH11',
+        'PUSH12', 'PUSH13', 'PUSH14', 'PUSH15', 'PUSH16', 'PUSH17', 'PUSH18', 'PUSH19', 'PUSH20', 'PUSH21',
+        'PUSH22', 'PUSH23', 'PUSH24', 'PUSH25', 'PUSH26', 'PUSH27', 'PUSH28', 'PUSH29', 'PUSH30', 'PUSH31',
+        'PUSH32', 'DUP1', 'DUP2', 'DUP3', 'DUP4', 'DUP5', 'DUP6', 'DUP7', 'DUP8', 'DUP9', 'DUP10', 'DUP11',
+        'DUP12', 'DUP13', 'DUP14', 'DUP15', 'DUP16', 'SWAP1', 'SWAP2', 'SWAP3', 'SWAP4', 'SWAP5', 'SWAP6',
+        'SWAP7', 'SWAP8', 'SWAP9', 'SWAP10', 'SWAP11', 'SWAP12', 'SWAP13', 'SWAP14', 'SWAP15', 'SWAP16',
+        'LOG0', 'LOG1', 'LOG2', 'LOG3', 'LOG4', 'CREATE', 'CALL', 'CALLCODE', 'RETURN', 'DELEGATECALL',
+        'STATICCALL', 'REVERT', 'INVALID', 'SELFDESTRUCT'
+    ]
+    
     opcode_count = Counter(opcodes)
-    opcode_list = ['STOP', 'ADD', 'MUL', 'SUB', 'DIV', 'SDIV', 'MOD', 'SMOD', 'ADDMOD', 'MULMOD', 'EXP', 'SIGNEXTEND',                  
-                 'LT', 'GT', 'SLT', 'SGT', 'EQ', 'ISZERO', 'AND', 'OR', 'XOR', 'NOT', 'BYTE', 'SHL', 'SHR', 'SAR',                  
-                 'SHA3', 'ADDRESS', 'BALANCE', 'ORIGIN', 'CALLER', 'CALLVALUE', 'CALLDATALOAD', 'CALLDATASIZE',                  
-                 'CALLDATACOPY', 'CODESIZE', 'CODECOPY', 'GASPRICE', 'EXTCODESIZE', 'EXTCODECOPY', 'RETURNDATASIZE',                  
-                 'RETURNDATACOPY', 'BLOCKHASH', 'COINBASE', 'TIMESTAMP', 'NUMBER', 'DIFFICULTY', 'GASLIMIT', 'POP',                  
-                 'MLOAD', 'MSTORE', 'MSTORE8', 'SLOAD', 'SSTORE', 'JUMP', 'JUMPI', 'PC', 'MSIZE', 'GAS', 'JUMPDEST',                  
-                 'PUSH1', 'PUSH2', 'PUSH3', 'PUSH4', 'PUSH5', 'PUSH6', 'PUSH7', 'PUSH8', 'PUSH9', 'PUSH10', 'PUSH11',                  
-                 'PUSH12', 'PUSH13', 'PUSH14', 'PUSH15', 'PUSH16', 'PUSH17', 'PUSH18', 'PUSH19', 'PUSH20', 'PUSH21',                  
-                 'PUSH22', 'PUSH23', 'PUSH24', 'PUSH25', 'PUSH26', 'PUSH27', 'PUSH28', 'PUSH29', 'PUSH30', 'PUSH31',                  
-                 'PUSH32', 'DUP1', 'DUP2', 'DUP3', 'DUP4', 'DUP5', 'DUP6', 'DUP7', 'DUP8', 'DUP9', 'DUP10', 'DUP11',                  
-                 'DUP12', 'DUP13', 'DUP14', 'DUP15', 'DUP16', 'SWAP1', 'SWAP2', 'SWAP3', 'SWAP4', 'SWAP5', 'SWAP6',                  
-                 'SWAP7', 'SWAP8', 'SWAP9', 'SWAP10', 'SWAP11', 'SWAP12', 'SWAP13', 'SWAP14', 'SWAP15', 'SWAP16',                  
-                 'LOG0', 'LOG1', 'LOG2', 'LOG3', 'LOG4', 'CREATE', 'CALL', 'CALLCODE', 'RETURN', 'DELEGATECALL',                  
-                 'STATICCALL', 'REVERT', 'INVALID', 'SELFDESTRUCT']
-    # Remove items not in opcode_list
-    keys_to_remove = set(opcode_count.keys()) - set(opcode_list)
-    for key in keys_to_remove:
-        opcode_count.pop(key)
-    total_opcodes = sum(opcode_count.values())
-    # Calculate frequency of each opcode
-    for opcode in opcode_list:
-        frequency = opcode_count.get(opcode, 0) / total_opcodes if total_opcodes > 0 else 0
-        opcode_frequency_dic = {"Opcode weight " + opcode: opcode_count.get(opcode, 0) / total_opcodes if total_opcodes > 0 else 0 for opcode in opcode_list}
+    opcode_frequency_dic = {
+        f"Opcode_weight_{opcode}": opcode_count.get(opcode, 0) / sum(opcode_count.values()) if sum(opcode_count.values()) > 0 else 0
+        for opcode in opcode_list
+    }
+    
     return opcode_frequency_dic
 
 def count_keywords_in_code(source_code):
-    # Prepare a regex pattern to match whole words only, case-insensitive
-    keywords_list = ['from', 'require', 'dev', 'internal', 'string', 'view', 'mapping', 'sub', 'emit', 'length','pure', 'will', 'not', 'approve', 'external', 'memory', 'eth', 'else', 'can', 'calls', 'data', 'q' , 'eth', 'else', 'can','calls', 'data', 'q' ]
+    """Count occurrences of specific keywords in the source code."""
+    keywords_list = [
+        'from', 'require', 'dev', 'internal', 'string', 'view', 'mapping', 'sub', 'emit', 'length', 'pure',
+        'will', 'not', 'approve', 'external', 'memory', 'eth', 'else', 'can', 'calls', 'data', 'q'
+    ]
+    
     patterns = {keyword: re.compile(r'\b' + re.escape(keyword) + r'\b', re.IGNORECASE) for keyword in keywords_list}
-    # Initialize a dictionary to store the count of each keyword
-    keyword_counts = {keyword: 0 for keyword in keywords_list}
-    # Count occurrences of each keyword using the prepared regex patterns
-    for keyword, pattern in patterns.items():
-        matches = pattern.findall(source_code)
-        keyword_counts[keyword] = len(matches)
-    # Return the dictionary with keyword counts
+    keyword_counts = {keyword: len(pattern.findall(source_code)) for keyword, pattern in patterns.items()}
+    
     return keyword_counts
