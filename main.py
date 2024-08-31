@@ -1,13 +1,10 @@
 import argparse
-from analyzer import compile_solidity_source, calculate_bytecode_entropy, process_bytecode, process_ast, process_opcode, count_keywords_in_code
-
+from analyzer import process_bytecode, process_ast, process_opcode, count_keywords_in_code
 
 def integrate_features_and_print(source_code):
     features = {}
-    features.update(process_bytecode(source_code))
-    features.update(process_ast(source_code))
-    features.update(process_opcode(source_code))
-    features.update(count_keywords_in_code(source_code))
+    features.update(process_bytecode(source_code) , process_ast(source_code) , 
+                    process_opcode(source_code) , count_keywords_in_code(source_code))
     return features
 
 def main():
