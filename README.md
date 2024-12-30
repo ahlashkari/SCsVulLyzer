@@ -1,6 +1,6 @@
 ![](https://github.com/ahlashkari/SCsVulLyzer/blob/main/bccc.jpg)
 
-# Smart Contracts Vulnerability Analyzer (SCsVulLyzer)
+# Smart Contracts Vulnerability Analyzer (SCsVulLyzer-V1.0)
 
 
 As part of the Understanding Cybersecurity Series (UCS), SCsVolLyzer is a Python open-source project to extract features to profile Smart Contracts (SCs) for vulnerability detection.   
