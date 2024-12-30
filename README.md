@@ -8,7 +8,7 @@ As part of the Understanding Cybersecurity Series (UCS), SCsVolLyzer is a Python
 The SCsVolLyzer is a Python-based tool designed to analyze and extract key metrics from Ethereum smart contracts written in Solidity. It employs a suite of functions to dissect the contract's source code, compiling it to obtain its abstract syntax tree (AST), bytecode, and opcodes. The analyzer calculates entropy of the bytecode to assess its randomness and security, determines the frequency of certain opcodes to understand the contract's complexity, and evaluates the usage of key Solidity keywords to gauge coding patterns. This modular and extensible tool provides a comprehensive snapshot of a smart contract's structure and behavior, facilitating developers and auditors in optimizing and securing Ethereum blockchain applications.
 
 
-# Copyright (c) 2023
+# Copyright (c) 2024
 
 For citation in your works and also understanding SCsVulLyzer-V2.0 completely, you can find below-published papers:
 
