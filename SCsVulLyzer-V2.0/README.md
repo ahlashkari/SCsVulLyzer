@@ -1,11 +1,12 @@
 ![](https://github.com/ahlashkari/SCsVulLyzer/blob/main/bccc.jpg)
 
-# Smart Contracts Vulnerability Analyzer (SCsVulLyzer)
+# Smart Contracts Vulnerabilities Analyzer (SCsVulLyzer V2.0)
 
 
-As part of the Understanding Cybersecurity Series (UCS), SCsVolLyzer is a Python open-source project to extract features to profile Smart Contracts (SCs) for vulnerability detection.   
+As a featured installment of the Understanding Cybersecurity Series (UCS), SCsVulLyzer V2 is an advanced Python open-source project designed to enhance the profiling of Smart Contracts (SCs) for improved vulnerability detection. This release builds upon the foundations of its predecessor by introducing refined methodologies for feature extraction and analysis.
+SCsVulLyzer operates as a comprehensive tool tailored for Ethereum smart contracts coded in Solidity. This version, also known as BCCC-SCsVulLyzer, distinguishes itself by categorizing features into two primary types: compiler-based and non-compiler-based. Such classification expands the scope of feature extraction and leverages a variety of functions to deeply analyze the contract's source code. This analysis includes compiling the code to extract bytecode, opcodes, the Abstract Syntax Tree (AST), the Application Binary Interface (ABI), along with detailed contract and Solidity-specific information.
+A notable enhancement in this version is the introduction of 'bytecode entropy'—a measure of the randomness within the bytecode, which serves as an indicator of unpredictability and complexity. This metric is particularly valuable in fields like cryptography and anomaly detection. The entropy is calculated using Shannon's formula:
 
-The SCsVolLyzer is a Python-based tool designed to analyze and extract key metrics from Ethereum smart contracts written in Solidity. It employs a suite of functions to dissect the contract's source code, compiling it to obtain its abstract syntax tree (AST), bytecode, and opcodes. The analyzer calculates entropy of the bytecode to assess its randomness and security, determines the frequency of certain opcodes to understand the contract's complexity, and evaluates the usage of key Solidity keywords to gauge coding patterns. This modular and extensible tool provides a comprehensive snapshot of a smart contract's structure and behavior, facilitating developers and auditors in optimizing and securing Ethereum blockchain applications.
 
 
 # Copyright (c) 2024
