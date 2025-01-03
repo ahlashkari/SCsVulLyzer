@@ -8,11 +8,15 @@ SCsVulLyzer operates as a comprehensive tool tailored for Ethereum smart contrac
 
 A notable enhancement in this version is the introduction of 'bytecode entropy'—a measure of the randomness within the bytecode, which serves as an indicator of unpredictability and complexity. This metric is particularly valuable in fields like cryptography and anomaly detection. The entropy is calculated using Shannon's formula:
 
-\[ H(X) = -\sum_{i=1}^n p(x_i) \log_2 p(x_i) \]
+$$
+H(X) = -\sum_{i=1}^n p(x_i) \log_2 p(x_i)
+$$
 
-Where \( X \) represents the set of bytes, \( p(x_i) \) the probability of each byte occurring, calculated as the frequency of \( x_i \) divided by the total number of bytes. For a byte array \( \mathbf{d} \) of length \( N \), entropy \( H(\mathbf{d}) \) is:
+Where \(X\) represents the set of bytes, \(p(x_i)\) the probability of each byte occurring, calculated as the frequency of \(x_i\) divided by the total number of bytes. For a byte array \(\mathbf{d}\) of length \(N\), entropy \(H(\mathbf{d})\) is:
 
-\[ H(\mathbf{d}) = -\sum_{x \in \mathbf{d}} \left( \frac{\text{count}(x)}{N} \right) \log_2 \left( \frac{\text{count}(x)}{N} \right) \] 
+$$
+H(\mathbf{d}) = -\sum_{x \in \mathbf{d}} \left( \frac{\text{count}(x)}{N} \right) \log_2 \left( \frac{\text{count}(x)}{N} \right) 
+$$
 
 Features are further categorized based on their evaluation timing—pre or post-compilation. Compiler-based features include those processed post-compilation, like ABI and AST, whereas non-compiler-based features derive from existing NLP methodologies adapted to smart contracts, focusing on critical keywords.
 
