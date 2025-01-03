@@ -12,7 +12,7 @@ $$
 H(X) = -\sum_{i=1}^n p(x_i) \log_2 p(x_i)
 $$
 
-Where \(X\) represents the set of bytes, \(p(x_i)\) the probability of each byte occurring, calculated as the frequency of \(x_i\) divided by the total number of bytes. For a byte array \(\mathbf{d}\) of length \(N\), entropy \(H(\mathbf{d})\) is:
+Where $$\(X\) $$represents the set of bytes, \(p(x_i)\) the probability of each byte occurring, calculated as the frequency of \(x_i\) divided by the total number of bytes. For a byte array \(\mathbf{d}\) of length \(N\), entropy \(H(\mathbf{d})\) is:
 
 $$
 H(\mathbf{d}) = -\sum_{x \in \mathbf{d}} \left( \frac{\text{count}(x)}{N} \right) \log_2 \left( \frac{\text{count}(x)}{N} \right) 
