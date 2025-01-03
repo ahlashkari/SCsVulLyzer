@@ -32,6 +32,23 @@ Features are further categorized based on their evaluation timing—pre or post-
 - [Project Team Members](#project-team-members)
 - [Acknowledgment](#acknowledgment)
 
+# Installation
+
+You must install the requirements in your system before you can begin installing or running anything. To do so, you can easily run this command:
+
+```bash
+sudo pip3 install -r requirements.txt
+```
+
+You are now ready to execute SCsVulLyzer, run this command:
+
+```bash
+python main.py Path_to_the_Solidity_source_code_file_to_analyze.sol
+```
+Also, this project has been successfully tested on Windows10, Ubuntu 22.04.
+
+
+
 # Copyright (c) 2024
 
 For citation in your works and also understanding SCsVulLyzer-V2.0 completely, you can find below-published papers:
