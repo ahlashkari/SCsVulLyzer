@@ -25,7 +25,6 @@ Features are further categorized based on their evaluation timing—pre or post-
 - [Installation](#installation)
 - [Extracted Features](#extracted-features)
   * [Definitions](#definitions)
-  * [Statistical Information Calculation](#statistical-information-calculation)
 - [Output](#output)
 - [Copyright (c) 2023](#copyright-c-2023)
 - [Contributing](#contributing)
