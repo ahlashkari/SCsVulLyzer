@@ -47,7 +47,9 @@ python main.py Path_to_the_Solidity_source_code_file_to_analyze.sol
 ```
 Also, this project has been successfully tested on Windows10, Ubuntu 22.04.
 
-
+# Extracted Features Categories
+We have currenlty 193 features that are as follows based on the category and : 
+![](https://github.com/ahlashkari/SCsVulLyzer/blob/main/Extracted_Features.jpg)
 
 # Copyright (c) 2024
 
