@@ -47,10 +47,31 @@ python main.py Path_to_the_Solidity_source_code_file_to_analyze.sol
 ```
 Also, this project has been successfully tested on Windows10, Ubuntu 22.04.
 
-# Extracted Features Categories
-We have currenlty 193 features that are as follows based on the category and : 
-![](https://github.com/ahlashkari/SCsVulLyzer/blob/main/Extracted_Features.jpg)
-
+# Extracted Features Categories and Description
+SCsVulLyzer V2.0 extracts 193 unique features, categorized and described as follows. Please note that some features, such as the number of instructions in opcode and bytecode, are generally referred to as the number of instructions or characters in the table.
+  
+| Category             | Features name                       | Description                                                                              | Category                | Features name              | Description                                                                    |
+|----------------------|-------------------------------------|------------------------------------------------------------------------------------------|-------------------------|----------------------------|--------------------------------------------------------------------------------|
+| Bytecode             | Entropy                             | Measure of randomness or complexity in the program's compiled bytecode.                  | Contract Information    | Base Contract Information  | Details of a parent or primary contract from which a SC inherits features.     |
+| Bytecode             | Number of Characters                | Count of unique character symbols in the program's compiled bytecode.                    | Source Code Information | Number of Events           | Count of distinct occurrences or actions within a system or application.       |
+| Opcode               | Number of Instructions              | Total count of operational code (opcode) instructions, representing the execution steps. | Source Code Information | Number of Functions        | Count of distinct operations or procedures in a specific context.              |
+| AST                  | Length of exportedSymbols           | Size or complexity measure of the exported symbols in the AST.                           | Source Code Information | Number of Public Functions | Count of externally accessible functions in a module or contract.              |
+| AST                  | Source ID                           | Unique identifier for specific source code elements within the AST.                      | Source Code Information | Number of Loop Statements  | Count of repetitive control structures (e.g., "while", "for") in a code block. |
+| AST                  | NodeType                            | Category or class of a node, indicating the syntax construct it represents.              | Source Code Information | Number of If Statements    | Count of conditional statements for decision-making in a code block.           |
+| AST                  | Number of Children                  | Count of immediate descendant nodes within the AST structure.                            | Source Code Information | Number of External Calls   | Count of calls to external contracts or services in blockchain development.    |
+| ABI                  | Length of Constant                  | Fixed size of a constant value in the ABI data representation.                           | Source Code Information | Total Code Lines           | Total lines of code, including comments and whitespace.                        |
+| ABI                  | Length of Name                      | Number of characters or bytes for an identifier or name in the ABI.                      | Source Code Information | Comment Lines              | Lines containing comments or explanations in a codebase.                       |
+| ABI                  | Length of Payable                   | Specifies if a function can receive Ether transactions (not a length measure).           | Source Code Information | Blank Lines                | Empty lines without code or comments in a codebase.                            |
+| ABI                  | Length of StateMutability           | Number of characters describing the mutability type of a contract's state.               | Source Code Information | Duplicate Lines            | Identical lines of code appearing more than once in a codebase.                |
+| ABI                  | Length of Type                      | Number of characters or bytes specifying an ABI element's type.                          | Solidity Information    | "delegatecall" Count       | Occurrences of the "delegatecall" instruction in SC code.                      |
+| ABI                  | Length of Input                     | Number of parameters or size of data for a function or method call.                      | Solidity Information    | "callcode" Count           | Occurrences of the "callcode" instruction in SC code.                          |
+| ABI                  | Length of Zero Values in Input      | Count or size of parameters set to zero in a function or method call.                    | Solidity Information    | "call" Count               | Occurrences of the "call" instruction in SC code.                              |
+| ABI                  | Length of Non-Zero Values in Input  | Count or size of non-zero value parameters in a function or method call.                 | Solidity Information    | "send" Count               | Uses of the "send" function to transfer funds in SC code.                      |
+| ABI                  | Length of Output                    | Number of return values or data size returned by a function or method.                   | Solidity Information    | "transfer" Count           | Uses of the "transfer" function to transfer funds in SC code.                  |
+| ABI                  | Length of Zero Values in Output     | Count or size of return values set to zero by a function or method.                      | Solidity Information    | "selfdestruct" Count       | Occurrences of "selfdestruct" to remove contracts from the blockchain.         |
+| ABI                  | Length of Non-Zero Values in Output | Count or size of non-zero value return values by a function or method.                   | Solidity Information    | "create" Count             | Uses of "create" to deploy new contract instances on the blockchain.           |
+| Contract Information | Contract Name                       | Identifier or title for a specific SC in a blockchain network.                           | Solidity Information    | "create2" Count            | Uses of "create2" to deploy new contract instances on the blockchain.          |
+        
 # Copyright (c) 2024
 
 For citation in your works and also understanding SCsVulLyzer-V2.0 completely, you can find below-published papers:
