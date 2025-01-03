@@ -99,11 +99,11 @@ Here are the first 10 rows of the CSV file after applying SCsVulLyzer V2.0 to th
 
 For citation in your works and also understanding SCsVulLyzer-V2.0 completely, you can find below-published papers:
 
-[Sepideh Hajihosseinkhani, Arash Habibi Lashkari, Ali Mizani, “Unveiling Smart Contracts Vulnerabilities: Toward Profiling Smart Contracts Vulnerabilities using Enhanced Genetic Algorithm and Generating Benchmark Dataset”, Blockchain: Research and Applications, December 2024, 100253](https://www.sciencedirect.com/science/article/pii/S2096720924000666)
+[Sepideh Hajihosseinkhani, Arash Habibi Lashkari, Ali Mizani, “Unveiling Smart Contracts Vulnerabilities: Toward Profiling Smart Contracts Vulnerabilities using Enhanced Genetic Algorithm and Generating Benchmark Dataset”, Blockchain: Research and Applications, December 2024, 100253]([https://www.sciencedirect.com/science/article/pii/S2096720924000666](https://www.sciencedirect.com/science/article/pii/S2096720924000666))
 
-For citation in your works and also understanding SCsVulLyzer-V1.0 completely, you can find below-published papers:
+For citation in your works and also understanding SCsVulLyzer-V2.0 completely, you can find below-published papers:
 
-[Sepideh Hajihosseinkhani, Arash Habibi Lashkari, Ali Mizani, “Unveiling Vulnerable Smart Contracts: Toward Profiling Vulnerable Smart Contracts using Genetic Algorithm and Generating Benchmark Dataset”, Blockchain: Research and Applications, Vol. 4, December 2023](https://www.sciencedirect.com/science/article/pii/S2096720923000465?via%3Dihub)
+[Sepideh Hajihosseinkhani, Arash Habibi Lashkari, Ali Mizani, “Unveiling Smart Contracts Vulnerabilities: Toward Profiling Smart Contracts Vulnerabilities using Enhanced Genetic Algorithm and Generating Benchmark Dataset”, Blockchain: Research and Applications, December 2024, 100253]([https://www.sciencedirect.com/science/article/pii/S2096720923000465?via%3Dihub](https://www.sciencedirect.com/science/article/pii/S2096720924000666))
 
 
 ### Project Team members 
