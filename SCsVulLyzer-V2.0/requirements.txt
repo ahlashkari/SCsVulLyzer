@@ -1,0 +1,6 @@
+packaging==23.1
+pandas==2.1.4
+pip==23.2.1
+py-solc-x==1.1.1
+regex==2022.7.9
+solc==0.0.0a0
