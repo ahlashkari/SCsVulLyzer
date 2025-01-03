@@ -20,6 +20,18 @@ $$
 
 Features are further categorized based on their evaluation timing—pre or post-compilation. Compiler-based features include those processed post-compilation, like ABI and AST, whereas non-compiler-based features derive from existing NLP methodologies adapted to smart contracts, focusing on critical keywords. This version also introduces three innovative feature categories: Contract Information, Source Code Information, and Solidity Information. These categories are designed to quantify various elements of the code, such as function counts, statements, loops, and lines, enhancing the granularity of our analysis. 
 
+# Table of Contents
+
+- [Installation](#installation)
+- [Extracted Features](#extracted-features)
+  * [Definitions](#definitions)
+  * [Statistical Information Calculation](#statistical-information-calculation)
+- [Output](#output)
+- [Copyright (c) 2023](#copyright-c-2023)
+- [Contributing](#contributing)
+- [Project Team Members](#project-team-members)
+- [Acknowledgment](#acknowledgment)
+
 # Copyright (c) 2024
 
 For citation in your works and also understanding SCsVulLyzer-V2.0 completely, you can find below-published papers:
