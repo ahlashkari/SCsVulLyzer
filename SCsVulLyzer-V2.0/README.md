@@ -36,7 +36,7 @@ Features are further categorized based on their evaluation timing—pre or post-
 
 You must install the requirements in your system before you can begin installing or running anything. To do so, you can easily run this command:
 
-```bash
+```bash 
 sudo pip3 install -r requirements.txt
 ```
 
