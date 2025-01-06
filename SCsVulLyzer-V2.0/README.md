@@ -2,11 +2,11 @@
 
 # Smart Contracts Vulnerabilities Analyzer (SCsVulLyzer V2.0)
 
-As a featured installment of the Understanding Cybersecurity Series (UCS), SCsVulLyzer V2 is an advanced Python open-source project designed to enhance the profiling of Smart Contracts (SCs) for improved vulnerability detection. This release builds upon the foundations of its predecessor by introducing refined methodologies for feature extraction and analysis.
+As a featured installment of the Understanding Cybersecurity Series (UCS), SCsVulLyzer V2.0 is an advanced Python open-source project designed to enhance the profiling of Smart Contracts for improved vulnerabilities detection. This release builds upon the foundations of its predecessor by introducing refined methodologies for feature extraction and analysis.
 
-SCsVulLyzer operates as a comprehensive tool tailored for Ethereum smart contracts coded in Solidity. This version, also known as BCCC-SCsVulLyzer, distinguishes itself by categorizing features into two primary types: compiler-based and non-compiler-based. Such classification expands the scope of feature extraction and leverages a variety of functions to deeply analyze the contract's source code. This analysis includes compiling the code to extract bytecode, opcodes, the Abstract Syntax Tree (AST), the Application Binary Interface (ABI), along with detailed contract and Solidity-specific information.
+SCsVulLyzer V2.0 is a comprehensive tool designed for analyzing Ethereum Smart Contracts written in Solidity. This version stands out by classifying features into compiler-based and non-compiler-based categories, enabling a broader scope of feature extraction compared to SCsVulLyzer V1.0. Compiler-based features, such as the Abstract Syntax Tree (AST) and the Application Binary Interface (ABI), are derived post-compilation, while non-compiler-based features leverage natural language processing techniques tailored to identify critical keywords in the source code. Additionally, the tool introduces three new feature categories—Contract Information, Source Code Information, and Solidity Information—that quantify aspects like function counts, statements, loops, and lines of code. These advancements allow for a more granular and in-depth analysis of smart contracts, enhancing the overall utility of SCsVulLyzer.
 
-A notable enhancement in this version is the introduction of 'bytecode entropy'—a measure of the randomness within the bytecode, which serves as an indicator of unpredictability and complexity. This metric is particularly valuable in fields like cryptography and anomaly detection. The entropy is calculated using Shannon's formula:
+Another notable enhancement in this version is the introduction of 'bytecode entropy'—a measure of the randomness within the bytecode, which serves as an indicator of unpredictability and complexity. This metric is particularly valuable in fields like cryptography and anomaly detection. The entropy is calculated using Shannon's formula:
 
 $$
 H(X) = -\sum_{i=1}^n p(x_i) \log_2 p(x_i)
@@ -18,7 +18,6 @@ $$
 H(\mathbf{d}) = -\sum_{x \in \mathbf{d}} \left( \frac{\text{count}(x)}{N} \right) \log_2 \left( \frac{\text{count}(x)}{N} \right) 
 $$
 
-Features are further categorized based on their evaluation timing—pre or post-compilation. Compiler-based features include those processed post-compilation, like ABI and AST, whereas non-compiler-based features derive from existing NLP methodologies adapted to smart contracts, focusing on critical keywords. This version also introduces three innovative feature categories: Contract Information, Source Code Information, and Solidity Information. These categories are designed to quantify various elements of the code, such as function counts, statements, loops, and lines, enhancing the granularity of our analysis. 
 
 # Table of Contents
 
