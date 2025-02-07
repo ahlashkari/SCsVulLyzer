@@ -70,7 +70,7 @@ SCsVulLyzer V2.0 extracts 193 unique features, categorized and described as foll
 | ABI                  | Length of Non-Zero Values in Output | Count or size of non-zero value return values by a function or method.                   | Solidity Information    | "create" Count             | Uses of "create" to deploy new contract instances on the blockchain.           |
 | Contract Information | Contract Name                       | Identifier or title for a specific SC in a blockchain network.                           | Solidity Information    | "create2" Count            | Uses of "create2" to deploy new contract instances on the blockchain.          |
 
-![](https://github.com/ahlashkari/SCsVulLyzer-V2.0/blob/main/chart Extracted Features.jpg)
+![](https://github.com/ahlashkari/SCsVulLyzer-V2.0/chart Extracted Features.jpg)
 # Output
 Here is the output from analyzing one source code with SCsVulLyzer V2.0, returned as a dictionary:
 
