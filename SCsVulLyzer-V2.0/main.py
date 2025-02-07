@@ -20,7 +20,7 @@ def analyze_solidity_contract(file_path):
         "ABI Features": extract_abi_features(solidity_code),
         "Opcode Count Features": count_opcodes(solidity_code),
         "Bytecode Length and Entropy": extract_length_and_entropy(solidity_code),
-        "Bytecode Character Count": extract_character_count(solidity_code)
+        "Bytecode Character Count": count_bytecode(solidity_code)
     }
 
     return flatten_analysis_result(analysis_result)
