@@ -58,8 +58,7 @@ def compile_with_correct_solidity_version(source_code):
         return solcx.compile_source(source_code)
 
     except (SolcError, SolcInstallationError) as e:
-        # print(f"Error: {e}.")
-        return None  # or handle the error as appropriate for your needs
+        return None
 
 def extract_ast_features(solidity_code):
     features = {}
@@ -106,7 +105,6 @@ def extract_abi_features(solidity_code):
             list_output.append(len(item.get('outputs')) if item.get('outputs') else 0)
             list_input.append(len(item.get('inputs')) if item.get('inputs') else 0)
 
-        # Creating feature dictionary
         features['len_list_constant'] = len([i for i in list_constact if i is not None])
         features['len_list_name'] = len([i for i in list_name if i is not None])
         features['len_list_payable'] = len([i for i in list_payable if i is not None])
@@ -143,11 +141,8 @@ def count_opcodes(solidity_code):
         # Update to include missing opcodes with a count of 0
         for opcode in opcode_list:
             opcode_count_features[opcode] = opcode_count.get(opcode, 0)
-
         return opcode_count_features
     except Exception as e:
-        # print(f"Error compiling contract: {e}")
-        # Return zeros for all opcodes
         return {opcode: 0 for opcode in opcode_list}
 
 def calculate_entropy(bytecode):
