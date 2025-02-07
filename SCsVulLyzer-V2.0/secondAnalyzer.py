@@ -3,6 +3,8 @@ from packaging import version
 import solcx
 from solcx.exceptions import SolcError, SolcInstallationError
 import pandas as pd
+import math
+from collections import Counter
 
 opcode_list = ['STOP', 'ADD', 'MUL', 'SUB', 'DIV', 'SDIV', 'MOD', 'SMOD', 'ADDMOD', 'MULMOD', 'EXP', 'SIGNEXTEND',
                  'LT', 'GT', 'SLT', 'SGT', 'EQ', 'ISZERO', 'AND', 'OR', 'XOR', 'NOT', 'BYTE', 'SHL', 'SHR', 'SAR',
@@ -18,6 +20,10 @@ opcode_list = ['STOP', 'ADD', 'MUL', 'SUB', 'DIV', 'SDIV', 'MOD', 'SMOD', 'ADDMO
                  'SWAP7', 'SWAP8', 'SWAP9', 'SWAP10', 'SWAP11', 'SWAP12', 'SWAP13', 'SWAP14', 'SWAP15', 'SWAP16',
                  'LOG0', 'LOG1', 'LOG2', 'LOG3', 'LOG4', 'CREATE', 'CALL', 'CALLCODE', 'RETURN', 'DELEGATECALL',
                  'STATICCALL', 'REVERT', 'INVALID', 'SELFDESTRUCT']
+
+bytecode_list = ['_','$','<','>',':','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f',
+                 'A','B','C','D','E','F','G','g','h','H','i','I','J','k','K','S','s','T','t','n','N',
+                 'M','m','O','o','P','p','R','r','x','L','l', 'Q','q','u','v','U','Z','w','W','X','Y','y']
 
 def compile_with_correct_solidity_version(source_code):
     default_version = '0.4.24'
@@ -144,8 +150,6 @@ def count_opcodes(solidity_code):
         # Return zeros for all opcodes
         return {opcode: 0 for opcode in opcode_list}
 
-import math
-
 def calculate_entropy(bytecode):
     data = bytes.fromhex(bytecode)
     frequencies = [float(data.count(byte)) / len(data) for byte in set(data)]
@@ -163,29 +167,20 @@ def extract_length_and_entropy(solidity_code):
     except Exception as e:
         features['bytecode_len'] = 0
         features['bytecode_entropy'] = 0
-
     return pd.Series(features)
 
-from collections import Counter
-a = 0
-def extract_character_count(solidity_code):
-    global a
-    char_count_features = {}
+def count_bytecode(solidity_code):
+    bytecode_count_features = {}
     try:
         compiled_source = compile_with_correct_solidity_version(solidity_code)
         contract_name = list(compiled_source.keys())[0]
         bytecode = compiled_source[contract_name]['bin']
-        char_count = Counter(bytecode)
-        # print(char_count)
-        prefix = 'bytecode_character_'
-        char_count = {prefix + key: value for key, value in char_count.items()}
-        char_count_features.update(char_count)
+        bytecode_count = Counter(bytecode)
+        for bytecode in bytecode_list:
+            bytecode_count_features[bytecode] = bytecode_count.get(bytecode, 0)
+        return bytecode_count_features
     except Exception as e:
-        char_count_features = {f'bytecode_character_{i}': 0 for i in range(16)}
-    a=a+1
-    if a%100 == 0:
-        print(a/100)
-    return pd.Series(char_count_features)
+        return {bytecode: 0 for bytecode in bytecode_list}
 
 def extract_contract_info(solidity_code):
     contract_match = re.search(r'contract\s+(\w+)', solidity_code)
