@@ -71,7 +71,7 @@ SCsVulLyzer V2.0 extracts 193 unique features, categorized and described as foll
 | Contract Information | Contract Name                       | Identifier or title for a specific SC in a blockchain network.                           | Solidity Information    | "create2" Count            | Uses of "create2" to deploy new contract instances on the blockchain.          |
 
 
-![](https://github.com/ahlashkari/SCsVulLyzer/SCsVulLyzer-V2.0/chartExtractedFeatures.jpg)
+![](https://github.com/ahlashkari/SCsVulLyzer/blob/main/SCsVulLyzer-V2.0/chartExtractedFeatures.jpg)
 
 # Output
 Here is the output from analyzing one source code with SCsVulLyzer V2.0, returned as a dictionary:
