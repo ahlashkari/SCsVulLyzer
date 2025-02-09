@@ -1,8 +1,8 @@
 ![](https://github.com/ahlashkari/SCsVulLyzer/blob/main/bccc.jpg)
 
-# Smart Contracts Vulnerabilities Analyzer (SCsVulLyzer V2.0)
+# Blockchain Security: Smart Contracts Vulnerabilities Analyzer (SCsVulLyzer V2.0)
 
-As a featured installment of the Understanding Cybersecurity Series (UCS), SCsVulLyzer V2.0 is an advanced Python open-source project designed to enhance the profiling of Smart Contracts for improved vulnerability detection. This release builds upon the foundations of its predecessor by introducing refined methodologies for feature extraction and analysis.
+As a featured installment of the Understanding Cybersecurity Series (UCS), SCsVulLyzer V2.0 is an advanced Python open-source project designed to enhance the profiling of Smart Contracts for improved vulnerability detection in the Ethereum Blockchain Platform. This release builds upon the foundations of its predecessor by introducing refined methodologies for feature extraction and analysis.
 
 SCsVulLyzer V2.0 is a comprehensive tool for analyzing Ethereum Smart Contracts written in Solidity. This version stands out by classifying features into compiler-based and non-compiler-based categories, enabling a broader scope of feature extraction compared to SCsVulLyzer V1.0. Compiler-based features, such as the Abstract Syntax Tree (AST) and the Application Binary Interface (ABI), are derived post-compilation, while non-compiler-based features leverage natural language processing techniques tailored to identify critical keywords in the source code. Additionally, the tool introduces three new feature categories—Contract Information, Source Code Information, and Solidity Information—that quantify aspects like function counts, statements, loops, and lines of code. These advancements allow for more granular and in-depth analysis of smart contracts, enhancing the overall utility of SCsVulLyzer V2.0.
 
