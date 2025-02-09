@@ -46,7 +46,7 @@ python main.py Path_to_the_Solidity_source_code_file_to_analyze.sol
 Also, this project has been successfully tested on Windows10, Ubuntu 22.04.
 
 # Extracted Features Categories and Description
-SCsVulLyzer V2.0 extracts 193 unique features, categorized and described as follows. Please note that some features, such as the number of instructions in opcode and bytecode, are generally referred to as the number of instructions or characters in the table.
+SCsVulLyzer V2.0 extracts 193 unique features, categorized and described as follows (Figure and table below). Please remember that some features, such as the number of instructions in opcode and bytecode, are generally referred to as the number of instructions or characters in the table.
   
 | Category             | Features name                       | Description                                                                              | Category                | Features name              | Description                                                                    |
 |----------------------|-------------------------------------|------------------------------------------------------------------------------------------|-------------------------|----------------------------|--------------------------------------------------------------------------------|
@@ -70,7 +70,8 @@ SCsVulLyzer V2.0 extracts 193 unique features, categorized and described as foll
 | ABI                  | Length of Non-Zero Values in Output | Count or size of non-zero value return values by a function or method.                   | Solidity Information    | "create" Count             | Uses of "create" to deploy new contract instances on the blockchain.           |
 | Contract Information | Contract Name                       | Identifier or title for a specific SC in a blockchain network.                           | Solidity Information    | "create2" Count            | Uses of "create2" to deploy new contract instances on the blockchain.          |
 
-![](https://github.com/ahlashkari/SCsVulLyzer/blob/SCsVulLyzer-V2.0/chart Extracted Features.jpg)
+![](https://github.com/ahlashkari/SCsVulLyzer/blob/main/bccc.jpg)
+![](https://github.com/ahlashkari/SCsVulLyzer/blob/SCsVulLyzer-V2.0/main/chart Extracted Features.jpg)
 
 # Output
 Here is the output from analyzing one source code with SCsVulLyzer V2.0, returned as a dictionary:
