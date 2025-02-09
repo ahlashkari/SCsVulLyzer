@@ -1,11 +1,11 @@
 ![](https://github.com/ahlashkari/SCsVulLyzer/blob/main/bccc.jpg)
 
-# Smart Contracts Vulnerability Analyzer (SCsVulLyzer-V1.0)
+# Blockchain Security: Smart Contracts Vulnerability Analyzer (SCsVulLyzer-V1.0)
 
 
-As part of the Understanding Cybersecurity Series (UCS), SCsVolLyzer is a Python open-source project to extract features to profile Smart Contracts (SCs) for vulnerability detection.   
+As part of the Understanding Cybersecurity Series (UCS), SCsVolLyzer is an open-source Python project that extracts features to profile smart contracts (SCs) for vulnerability detection in the Ethereum Blockchain Security.   
 
-The SCsVolLyzer is a Python-based tool designed to analyze and extract key metrics from Ethereum smart contracts written in Solidity. It employs a suite of functions to dissect the contract's source code, compiling it to obtain its abstract syntax tree (AST), bytecode, and opcodes. The analyzer calculates entropy of the bytecode to assess its randomness and security, determines the frequency of certain opcodes to understand the contract's complexity, and evaluates the usage of key Solidity keywords to gauge coding patterns. This modular and extensible tool provides a comprehensive snapshot of a smart contract's structure and behavior, facilitating developers and auditors in optimizing and securing Ethereum blockchain applications.
+The SCsVolLyzer is a Python-based tool that analyzes and extracts key metrics from Ethereum smart contracts written in Solidity. It employs a suite of functions to dissect the contract's source code, compiling it to obtain its abstract syntax tree (AST), bytecode, and opcodes. The analyzer calculates the entropy of the bytecode to assess its randomness and security, determines the frequency of specific opcodes to understand the contract's complexity, and evaluates the usage of key Solidity keywords to gauge coding patterns. This modular and extensible tool provides a comprehensive snapshot of a smart contract's structure and behavior, facilitating developers and auditors in optimizing and securing Ethereum blockchain applications.
 
 
 # Table of Contents
