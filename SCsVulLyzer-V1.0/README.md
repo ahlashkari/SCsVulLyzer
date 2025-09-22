@@ -28,7 +28,7 @@ You must install the requirements in your system before you can begin installing
 sudo pip3 install -r requirements.txt
 ```
 
-You are now ready to execute SCsVolLyzer, run this command:
+You are now ready to execute SCsVulLyzer, run this command:
 
 ```bash
 python main.py path_to_solidity_source_file.sol
